@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Signup</h2>
-    <form method="POST">
+    <form action="/welcome" method="post">
         <table>
             <tbody>
                 <tr>
@@ -11,7 +11,7 @@
                     </td>
                     <td>
                         <input type='username' name='username' value="{{username}}"/>
-                        <span class='error'></span>
+                        <span class='error'>{{user_error}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -20,7 +20,7 @@
                     </td>
                     <td>
                         <input type='password' name='password'/>
-                        <span class="error"></span>
+                        <span class="error">{{pass_error}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -29,7 +29,7 @@
                     </td>
                     <td>
                         <input type='password' name='verify_password'/>
-                        <span class="error"></span>
+                        <span class="error">{{vp_error}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +38,7 @@
                     </td>
                     <td>
                         <input type='text' name='email'/>
-                        <span class="error"></span>
+                        <span class="error">{{email_error}}</span>
                     </td>
                 </tr>
             </tbody>
@@ -48,7 +48,12 @@
         <input type='submit' value='Submit'/>
     </form>
 
-
-
-
+{% if error %}
+  <p class='error'>{{ error }}</p>
+{% endif %}
 {% endblock %}
+
+
+
+
+
